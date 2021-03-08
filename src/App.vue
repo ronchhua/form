@@ -1,18 +1,48 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app" v-bind:width="width" v-bind:height="height">
+    <!-- <v-btn> -->
+    <button>
+      <router-link to='/person-form'>Add User</router-link>
+      <router-view />
+    </button>
+    <!--</v-btn>-->
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
+//import Form from './components/Form.vue'
+//import Submission from './components/Submission.vue'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
+
+  data () {
+    return {
+      height: 1576,
+      width: 764,
+    }
+  },
+
+  mounted() {
+    window.addEventListener('resize', this.resizeElements);
+    this.resizeElements();
+  },
+
+  methods: {
+    resizeElements: function () {
+        // Calculate new canvas size based on window
+        this.height = window.innerHeight;
+        this.width = window.innerWidth;
+        this.$nextTick(() => {
+          // Redraw elememts
+        });
+
+
+    },
+  },
+
+
 }
 </script>
 
@@ -22,7 +52,9 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
   margin-top: 60px;
 }
+
+
+
 </style>

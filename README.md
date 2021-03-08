@@ -3,6 +3,9 @@
 ## Project setup
 ```
 npm install
+npm install vuex
+npm install vue-router
+vue add vuetify
 ```
 
 ### Compiles and hot-reloads for development
