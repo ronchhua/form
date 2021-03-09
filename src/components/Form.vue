@@ -39,8 +39,7 @@
               <v-select
                 v-model="state"
                 :items="stateArray"
-                :rules="stateRules"
-                required
+                
                 label="State"
               ></v-select>
 
@@ -77,12 +76,14 @@
 
           <v-btn 
             @click="storeFieldValues"
-            to='/person-detail'
+            
             :disabled="!validForm"
           >Submit Form</v-btn>
 
         </v-container>
       </v-form>
+
+    <!-- to='/person-detail' -->
 
     <!--
     <button>
@@ -142,6 +143,17 @@ export default {
         v => !!v || 'Agreement is required',
       ],
 
+      completedForm: {
+        firstName: null,
+        lastName: null,
+        address1: null,
+        address2: null,
+        state: null,
+        zipCode: null,
+        phoneNumber: null,
+        email: null,  
+      },
+
     }
   },
 
@@ -165,7 +177,22 @@ export default {
   
 
     storeFieldValues() {
-      console.log('hello');
+
+      var formEntries = this.completedForm;
+
+      //for(var entry in formEntries) {
+      //  formEntries[entry] = 5;
+      //}
+      formEntries['firstName'] = this.firstName;
+      formEntries['lastName'] = this.lastName;
+      formEntries['address1'] = this.address1;
+      formEntries['address2'] = this.address2;
+      formEntries['state'] = this.state;
+      formEntries['zipCode'] = this.zipCode;
+      formEntries['phoneNumber'] = this.phoneNumber; 
+      formEntries['email'] = this.email;
+
+      //this.$store.dispatch('saveFields', formEntries);
     },
 
   },

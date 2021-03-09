@@ -5,51 +5,49 @@ Vue.use(Vuex);
 
 export const store = new Vuex.Store( {
     
-    //Create a state of some variable
+    //Create a state of each variable
     state: {
-        firstName: null,
-        lastName: null,
-        address1: null,
-        address2: null,
-        state: null,
-        zipCode: null,
-        phoneNumber: null,
-        email: null,
+        form : {
+            firstName: null,
+            lastName: null,
+            address1: null,
+            address2: null,
+            state: null,
+            zipCode: null,
+            phoneNumber: null,
+            email: null,
+        },
     },
 
     //Create functions that can modify these states 
     mutations: {  
 /*
-        updateCoordinates (state) {
+        setFields(state, newFields) {
+            
+            for(var field in state.form) {
+                
+            }
+
+            state.form.firstName= newFields.firstName });
+            completedForm.push({ 'lastName': this.firstname });
+            completedForm.push({ 'address1': this.address1 });
+            completedForm.push({ 'address2': this.address2 });
+            completedForm.push({ 'state': this.state });
+            completedForm.push({ 'zipCode': this.zipCode });
+            completedForm.push({ 'phoneNumber': this.phoneNumber });
+            completedForm.push({ 'email': this.email });
 
         },
+*/
 
-        initCanvas(state, canvas) {
-            state.canvas = canvas;
-        },
-
-        storeImageElements(state, image) {
-            state.imageElements.push(image);
-        },
-
-        clearPositions(state) {
-
-        },
-        */
     },
 
     //Calls mutations asynchronously, mutations occur synchronously
     actions: {
-   /*     rotateAction (context, degrees) {
-            if(this.state.rotation == 360) {
-                this.state.rotation = 0;
-            }
-            context.commit('rotateClockwise', degrees);
+
+        saveFields(context, fields) {
+            context.commit('setFields', fields);
         },
-        setCanvas (context, canvas) {
-            context.commit('initCanvas', canvas);
-        },
-*/
 
     },
 
