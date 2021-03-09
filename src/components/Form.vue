@@ -1,87 +1,87 @@
 <template>
   <div class="Form">
 
-      <v-form v-model="validForm">
-        <v-container>
-          <v-row>
-            Submission Form
-          </v-row>
-        
-          <v-col cols="12" md="24">
-              <v-text-field
-                v-model="firstname"
-                :rules="nameRules"
-                :counter="10"
-                label="First name"
-                required
-              ></v-text-field>
-  
-              <v-text-field
-                v-model="lastname"
-                :rules="nameRules"
-                :counter="10"
-                label="Last name"
-                required
-              ></v-text-field>
+    <v-form v-model="validForm">
+      <v-container>
+        <v-row>
+          Submission Form
+        </v-row>
+      
+        <v-col cols="12" md="24">
+            <v-text-field
+              v-model="firstName"
+              :rules="nameRules"
+              :counter="10"
+              label="First name"
+              required
+            ></v-text-field>
 
-              <v-text-field
-                v-model="address1"
-                :rules="address1Rules"
-                label="Address 1"
-                required
-              ></v-text-field>
+            <v-text-field
+              v-model="lastName"
+              :rules="nameRules"
+              :counter="10"
+              label="Last name"
+              required
+            ></v-text-field>
 
-              <v-text-field
-                v-model="address2"
-                label="Address 2"
-              ></v-text-field>
+            <v-text-field
+              v-model="address1"
+              :rules="address1Rules"
+              label="Address 1"
+              required
+            ></v-text-field>
 
-              <v-select
-                v-model="state"
-                :items="stateArray"
-                
-                label="State"
-              ></v-select>
+            <v-text-field
+              v-model="address2"
+              label="Address 2"
+            ></v-text-field>
 
-              <v-text-field
-                v-model="zipCode"
-                label="ZIP Code"
-                type="number"
-                :rules="zipCodeRules"
-                required
-              ></v-text-field>
+            <v-select
+              v-model="state"
+              :items="stateArray"
+              
+              label="State"
+            ></v-select>
 
-              <v-text-field
-                v-model="phoneNumber"
-                label="Phone Number"
-                type="number"
-                :rules="phoneNumberRules"
-                required
-              ></v-text-field>
+            <v-text-field
+              v-model="zipCode"
+              label="ZIP Code"
+              type="number"
+              :rules="zipCodeRules"
+              required
+            ></v-text-field>
 
-              <v-text-field
-                v-model="email"
-                :rules="emailRules"
-                label="E-mail"
-                required
-              ></v-text-field>
+            <v-text-field
+              v-model="phoneNumber"
+              label="Phone Number"
+              type="number"
+              :rules="phoneNumberRules"
+              required
+            ></v-text-field>
 
-              <v-checkbox
-                v-model="checkbox"
-                :label = "`I agree that my information will be stored`"
-                :rules="checkboxRules"
-                required
-              ></v-checkbox>
-          </v-col>
+            <v-text-field
+              v-model="email"
+              :rules="emailRules"
+              label="E-mail"
+              required
+            ></v-text-field>
 
-          <v-btn 
-            @click="storeFieldValues"
-            
-            :disabled="!validForm"
-          >Submit Form</v-btn>
+            <v-checkbox
+              v-model="checkbox"
+              :label = "`I agree that my information will be stored`"
+              :rules="checkboxRules"
+              required
+            ></v-checkbox>
+        </v-col>
 
-        </v-container>
-      </v-form>
+        <v-btn 
+          @click="storeFieldValues"
+          
+          :disabled="!validForm"
+        >Submit Form</v-btn>
+
+      </v-container>
+    </v-form>
 
     <!-- to='/person-detail' -->
 
@@ -101,8 +101,8 @@ export default {
   data() {
     return {
       validForm: false,
-      firstname: '',
-      lastname: '',
+      firstName: '',
+      lastName: '',
       nameRules: [
         v => !!v || 'Name is required',
         v => v.length <= 10 || 'Name must be less than 10 characters',
@@ -192,7 +192,9 @@ export default {
       formEntries['phoneNumber'] = this.phoneNumber; 
       formEntries['email'] = this.email;
 
-      //this.$store.dispatch('saveFields', formEntries);
+      this.$store.dispatch('saveFields', formEntries);
+
+      this.$router.push('/person-detail');
     },
 
   },

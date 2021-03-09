@@ -21,24 +21,16 @@ export const store = new Vuex.Store( {
 
     //Create functions that can modify these states 
     mutations: {  
-/*
+
         setFields(state, newFields) {
             
             for(var field in state.form) {
-                
+                state.form[field] = newFields[field];
+                //console.log(field, state.form[field]);
             }
 
-            state.form.firstName= newFields.firstName });
-            completedForm.push({ 'lastName': this.firstname });
-            completedForm.push({ 'address1': this.address1 });
-            completedForm.push({ 'address2': this.address2 });
-            completedForm.push({ 'state': this.state });
-            completedForm.push({ 'zipCode': this.zipCode });
-            completedForm.push({ 'phoneNumber': this.phoneNumber });
-            completedForm.push({ 'email': this.email });
-
         },
-*/
+
 
     },
 
@@ -53,10 +45,10 @@ export const store = new Vuex.Store( {
 
     //Gets values of states.
     getters: {
-        /*getRotation (state) {
-            return state.rotation;
+        getForm (state) {
+            return state.form;
         },
-*/
+
     }
 
 });
