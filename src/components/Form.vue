@@ -1,11 +1,12 @@
 <template>
   <div class="Form">
 
-      <v-form v-model="valid">
+      <v-form v-model="validForm">
         <v-container>
           <v-row>
             Submission Form
           </v-row>
+        
           <v-col cols="12" md="24">
               <v-text-field
                 v-model="firstname"
@@ -14,7 +15,7 @@
                 label="First name"
                 required
               ></v-text-field>
-
+  
               <v-text-field
                 v-model="lastname"
                 :rules="nameRules"
@@ -35,9 +36,13 @@
                 label="Address 2"
               ></v-text-field>
 
-              <!--<v-text-field
-                STATE
-              ></v-text-field>-->
+              <v-select
+                v-model="state"
+                :items="stateArray"
+                :rules="stateRules"
+                required
+                label="State"
+              ></v-select>
 
               <v-text-field
                 v-model="zipCode"
@@ -65,18 +70,27 @@
               <v-checkbox
                 v-model="checkbox"
                 :label = "`I agree that my information will be stored`"
+                :rules="checkboxRules"
                 required
               ></v-checkbox>
           </v-col>
+
+          <v-btn 
+            @click="storeFieldValues"
+            to='/person-detail'
+            :disabled="!validForm"
+          >Submit Form</v-btn>
+
         </v-container>
       </v-form>
 
+    <!--
     <button>
       <router-link to='/person-detail'>Submit Form</router-link>
     </button>
     <router-view />
-    <!-- Button onclick do <router-link to='/person-detail'>Submission</router-link> -->
-    
+    -->
+
   </div>
 </template>
 
@@ -85,40 +99,76 @@ export default {
   name: 'Form',
   data() {
     return {
-      valid: false,
+      validForm: false,
       firstname: '',
       lastname: '',
       nameRules: [
         v => !!v || 'Name is required',
         v => v.length <= 10 || 'Name must be less than 10 characters',
       ],
+
       address1: '',
       address1Rules: [
         v => !!v || 'Address is required',
       ],
       address2: '',
+
+      state: null,
+      stateArray: ['Foo', 'Bar', 'Fizz', 'Buzz'],
+      stateRules: [
+        v => !!v || 'State is required',
+      ],
+
       zipCode: '',
       zipCodeRules: [
         v => !!v || 'ZIP Code is required',
        // digits: 5,
       ],
+
       phoneNumber: '',
       phoneNumberRules: [
         v => !!v || 'Phone Number is required',
        // digits: 5,
       ],
+
       email: '',
       emailRules: [
         v => !!v || 'E-mail is required',
         v => /.+@.+/.test(v) || 'E-mail must be valid',
       ],
-      checkbox: false,
 
+      checkbox: false,
+      checkboxRules: [
+        v => !!v || 'Agreement is required',
+      ],
 
     }
   },
 
+  mounted() {
+    //this.populateStateArray();
+  },
+
+  methods: {
+    populateStateArray() {
+
+      this.stateArray = ['Alabama','Alaska','American Samoa','Arizona','Arkansas','California',
+      'Colorado','Connecticut','Delaware','District of Columbia','Federated States of Micronesia',
+      'Florida','Georgia','Guam','Hawaii','Idaho','Illinois','Indiana','Iowa','Kansas','Kentucky',
+      'Louisiana','Maine','Marshall Islands','Maryland','Massachusetts','Michigan','Minnesota',
+      'Mississippi','Missouri','Montana','Nebraska','Nevada','New Hampshire','New Jersey',
+      'New Mexico','New York','North Carolina','North Dakota','Northern Mariana Islands','Ohio',
+      'Oklahoma','Oregon','Palau','Pennsylvania','Puerto Rico','Rhode Island','South Carolina',
+      'South Dakota','Tennessee','Texas','Utah','Vermont','Virgin Island','Virginia','Washington',
+      'West Virginia','Wisconsin','Wyoming'];
+    },
   
+
+    storeFieldValues() {
+      console.log('hello');
+    },
+
+  },
 }
 </script>
 

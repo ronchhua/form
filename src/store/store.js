@@ -7,7 +7,14 @@ export const store = new Vuex.Store( {
     
     //Create a state of some variable
     state: {
-        
+        firstName: null,
+        lastName: null,
+        address1: null,
+        address2: null,
+        state: null,
+        zipCode: null,
+        phoneNumber: null,
+        email: null,
     },
 
     //Create functions that can modify these states 
