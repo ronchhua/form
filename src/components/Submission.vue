@@ -2,9 +2,6 @@
   <div class="Submission">
     <v-form v-model="validForm">
       <v-container>
-        <v-row>
-          Submission Form
-        </v-row>
       
         <v-col cols="12" md="24">
             <v-text-field
@@ -31,11 +28,11 @@
               disabled
             ></v-text-field>
 
-            <v-select
+            <v-text-field
               v-model="completedForm['state']"
               label="State"
               disabled
-            ></v-select>
+            ></v-text-field>
 
             <v-text-field
               v-model="completedForm['zipCode']"

@@ -1,16 +1,22 @@
 <template>
-  <div id="app" v-bind:width="width" v-bind:height="height">
-    
-    <button>
+  <v-app>
+  <!--<div id="app" v-bind:width="width" v-bind:height="height">-->
+    <v-main>
+      
+    <button class="addUserButton">
       <router-link to='/person-form'>Add User</router-link>
       <router-view />
     </button>
+
+    </v-main>
     <!--
     <v-btn 
-      to='/person-form'
+      :to='/person-form'
     >Add User</v-btn>
     -->
-  </div>
+    <!--<button @click="$router.push('/person-form')">Add User</button>-->
+  <!--</div>-->
+  </v-app>
 </template>
 
 <script>
@@ -51,6 +57,7 @@ export default {
 </script>
 
 <style>
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

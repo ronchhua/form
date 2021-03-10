@@ -1,17 +1,19 @@
 <template>
   <div class="Form">
 
+    <div class="formTitle">
+      Submission Form
+    </div>
+
     <v-form v-model="validForm">
       <v-container>
-        <v-row>
-          Submission Form
-        </v-row>
+          
       
         <v-col cols="12" md="24">
             <v-text-field
               v-model="firstName"
               :rules="nameRules"
-              :counter="10"
+              :counter="20"
               label="First name"
               required
             ></v-text-field>
@@ -19,7 +21,7 @@
             <v-text-field
               v-model="lastName"
               :rules="nameRules"
-              :counter="10"
+              :counter="20"
               label="Last name"
               required
             ></v-text-field>
@@ -39,7 +41,7 @@
             <v-select
               v-model="state"
               :items="stateArray"
-              
+              :rules="stateRules"
               label="State"
             ></v-select>
 
@@ -105,7 +107,7 @@ export default {
       lastName: '',
       nameRules: [
         v => !!v || 'Name is required',
-        v => v.length <= 10 || 'Name must be less than 10 characters',
+        v => v.length <= 20 || 'Name must be less than 20 characters',
       ],
 
       address1: '',
@@ -115,7 +117,7 @@ export default {
       address2: '',
 
       state: null,
-      stateArray: ['Foo', 'Bar', 'Fizz', 'Buzz'],
+      stateArray: [],
       stateRules: [
         v => !!v || 'State is required',
       ],
@@ -158,7 +160,7 @@ export default {
   },
 
   mounted() {
-    //this.populateStateArray();
+    this.populateStateArray();
   },
 
   methods: {
@@ -211,9 +213,14 @@ export default {
   text-align: center;
   margin-top: 60px;
   box-shadow: 2px 0px 30px 10px #0699dd50;
+  width: 500px;
 
 }
 
-
+.formTitle {
+  padding: 20px;
+  font-size: 40px;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
 
 </style>
