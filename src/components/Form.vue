@@ -212,8 +212,10 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   margin-top: 60px;
-  box-shadow: 2px 0px 30px 10px #0699dd50;
+  box-shadow: 2px 0px 30px 30px #0699dd50;
   width: 500px;
+
+  background-color: #0cebf350;
 
 }
 

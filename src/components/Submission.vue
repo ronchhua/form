@@ -1,9 +1,9 @@
 <template>
   <div class="Submission">
-    <v-form v-model="validForm">
+    <v-form>
       <v-container>
       
-        <v-col cols="12" md="24">
+        <v-col cols=auto md="24">
             <v-text-field
               v-model="completedForm['firstName']"
               label="First name"
