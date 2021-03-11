@@ -219,6 +219,10 @@ export default {
 
 }
 
+.body {
+  background-color: #39e6c0cb;
+}
+
 .formTitle {
   padding: 20px;
   font-size: 40px;

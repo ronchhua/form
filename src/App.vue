@@ -2,18 +2,22 @@
   <v-app>
   <!--<div id="app" v-bind:width="width" v-bind:height="height">-->
     <v-main>
-      
+
+    <!--<button class="addUserButton" @click="routeToForm"> Add User </button> -->
+
     <button class="addUserButton">
       <router-link to='/person-form'>Add User</router-link>
       <router-view />
     </button>
-
+    
     </v-main>
+
     <!--
     <v-btn 
       :to='/person-form'
     >Add User</v-btn>
     -->
+
     <!--<button @click="$router.push('/person-form')">Add User</button>-->
   <!--</div>-->
   </v-app>
@@ -50,6 +54,10 @@ export default {
 
 
     },
+
+    routeToForm() {
+      this.$router.push({ path: '/person-form' });
+    }
   },
 
 
@@ -64,8 +72,13 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   margin-top: 60px;
+  background-color: #abf1e0;
+
 }
 
+body {
+  background-color: #abf1e0;
+}
 
 
 </style>

@@ -8,8 +8,8 @@ Vue.use(VueRouter);
 
 const routes = [
     //{path: '/', component: App},
-    {path: '/person-form', component: Form},
-    {path: '/person-detail', component: Submission},
+    {path: '/person-form', name: 'Form', component: Form},
+    {path: '/person-detail', name: 'Submit', component: Submission},
 ];
 
 const router = new VueRouter({mode: 'history', routes});
