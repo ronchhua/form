@@ -85,15 +85,6 @@
       </v-container>
     </v-form>
 
-    <!-- to='/person-detail' -->
-
-    <!--
-    <button>
-      <router-link to='/person-detail'>Submit Form</router-link>
-    </button>
-    <router-view />
-    -->
-
   </div>
 </template>
 
@@ -117,7 +108,15 @@ export default {
       address2: '',
 
       state: null,
-      stateArray: [],
+      stateArray: ['Alabama','Alaska','American Samoa','Arizona','Arkansas','California',
+        'Colorado','Connecticut','Delaware','District of Columbia','Federated States of Micronesia',
+        'Florida','Georgia','Guam','Hawaii','Idaho','Illinois','Indiana','Iowa','Kansas','Kentucky',
+        'Louisiana','Maine','Marshall Islands','Maryland','Massachusetts','Michigan','Minnesota',
+        'Mississippi','Missouri','Montana','Nebraska','Nevada','New Hampshire','New Jersey',
+        'New Mexico','New York','North Carolina','North Dakota','Northern Mariana Islands','Ohio',
+        'Oklahoma','Oregon','Palau','Pennsylvania','Puerto Rico','Rhode Island','South Carolina',
+        'South Dakota','Tennessee','Texas','Utah','Vermont','Virgin Island','Virginia','Washington',
+        'West Virginia','Wisconsin','Wyoming'],
       stateRules: [
         v => !!v || 'State is required',
       ],
@@ -125,13 +124,11 @@ export default {
       zipCode: '',
       zipCodeRules: [
         v => !!v || 'ZIP Code is required',
-       // digits: 5,
       ],
 
       phoneNumber: '',
       phoneNumberRules: [
         v => !!v || 'Phone Number is required',
-       // digits: 5,
       ],
 
       email: '',
@@ -160,31 +157,16 @@ export default {
   },
 
   mounted() {
-    this.populateStateArray();
+
   },
 
-  methods: {
-    populateStateArray() {
 
-      this.stateArray = ['Alabama','Alaska','American Samoa','Arizona','Arkansas','California',
-      'Colorado','Connecticut','Delaware','District of Columbia','Federated States of Micronesia',
-      'Florida','Georgia','Guam','Hawaii','Idaho','Illinois','Indiana','Iowa','Kansas','Kentucky',
-      'Louisiana','Maine','Marshall Islands','Maryland','Massachusetts','Michigan','Minnesota',
-      'Mississippi','Missouri','Montana','Nebraska','Nevada','New Hampshire','New Jersey',
-      'New Mexico','New York','North Carolina','North Dakota','Northern Mariana Islands','Ohio',
-      'Oklahoma','Oregon','Palau','Pennsylvania','Puerto Rico','Rhode Island','South Carolina',
-      'South Dakota','Tennessee','Texas','Utah','Vermont','Virgin Island','Virginia','Washington',
-      'West Virginia','Wisconsin','Wyoming'];
-    },
-  
+  methods: {
 
     storeFieldValues() {
 
       var formEntries = this.completedForm;
 
-      //for(var entry in formEntries) {
-      //  formEntries[entry] = 5;
-      //}
       formEntries['firstName'] = this.firstName;
       formEntries['lastName'] = this.lastName;
       formEntries['address1'] = this.address1;

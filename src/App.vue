@@ -1,32 +1,16 @@
 <template>
   <v-app>
-  <!--<div id="app" v-bind:width="width" v-bind:height="height">-->
     <v-main>
-
-    <!--<button class="addUserButton" @click="routeToForm"> Add User </button> -->
-
     <button class="addUserButton">
       <router-link to='/person-form'>Add User</router-link>
       <router-view />
     </button>
     
     </v-main>
-
-    <!--
-    <v-btn 
-      :to='/person-form'
-    >Add User</v-btn>
-    -->
-
-    <!--<button @click="$router.push('/person-form')">Add User</button>-->
-  <!--</div>-->
   </v-app>
 </template>
 
 <script>
-
-//import Form from './components/Form.vue'
-//import Submission from './components/Submission.vue'
 
 export default {
   name: 'App',
@@ -51,8 +35,6 @@ export default {
         this.$nextTick(() => {
           // Redraw elememts
         });
-
-
     },
 
     routeToForm() {

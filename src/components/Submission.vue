@@ -57,7 +57,7 @@
               label="E-mail"
               disabled
             ></v-text-field>
-
+            
         </v-col>
 
       </v-container>
@@ -84,15 +84,11 @@ export default {
   },
 
   mounted() {
-    
     var storedForm = this.$store.getters.getForm;
-
     for(var entry in this.completedForm) {
       this.completedForm[entry] = storedForm[entry];
     }
   },
-
-
 }
 </script>
 
